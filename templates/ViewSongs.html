@@ -1,0 +1,21 @@
+<!doctype html>
+<link href="../static/css/stockPage.css" rel="stylesheet">
+<title>Submit Songs</title>
+<p><a class="btn btn-primary btn-lg" href="/Top100Songs" role="button">Submit Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/Vote" role="button">Vote on Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/ViewSongs" role="button">View the List</a></p>
+
+<h1>The Top 100 Songs of 2010-2016 by votes</h1>
+
+<table>
+{% for song in SongTable %}
+    <tr>
+        <td>{{song.SongTitle}}</td>
+        <td>{{song.Artist}}</td>
+        <td>{{song.NominatedBy}}</td>
+        <td>{{song.YesVotes}}</td>
+        <td>{{song.NoVotes}}</td>
+        <td>{{song.YesPercentage}}</td>
+    </tr>
+{% endfor %}
+</table>

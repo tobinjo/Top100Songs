@@ -1,0 +1,17 @@
+<!doctype html>
+<link href="../static/css/stockPage.css" rel="stylesheet">
+<title>Vote on Songs</title>
+<p><a class="btn btn-primary btn-lg" href="/Top100Songs" role="button">Submit Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/Vote" role="button">Vote on Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/ViewSongs" role="button">View the List</a></p>
+
+<h1>Thanks for voting!</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+    {% endwith %}

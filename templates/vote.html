@@ -1,0 +1,33 @@
+<!doctype html>
+<link href="../static/css/stockPage.css" rel="stylesheet">
+<title>Vote on Songs</title>
+<p><a class="btn btn-primary btn-lg" href="/Top100Songs" role="button">Submit Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/Vote" role="button">Vote on Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/ViewSongs" role="button">View the List</a></p>
+
+<h1>Vote on songs submitted for consideration in the top 100 songs of 2010-2016</h1>
+<h2>How you decide whether or not a song is worthy of being in the top 100 is all on you.  There are no specific criteria except that this is the "best" of the time period</h2>
+
+{% block content %}
+
+<h3>Vote on the song: {{ song.SongTitle}} by {{ song.Artist}} </h3>
+
+    <form action="" method="post" name="voteform">
+        {{ form.hidden_tag() }}
+        <p>
+            Select your vote:<br>
+            {{ form.vote(size=10) }}<br>
+        </p>
+        <p><input type="submit" value="Submit Your Vote!"></p>
+        
+    </form>
+{% endblock %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}

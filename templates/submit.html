@@ -1,0 +1,37 @@
+<!doctype html>
+<link href="../static/css/stockPage.css" rel="stylesheet">
+<title>Submit Songs</title>
+<p><a class="btn btn-primary btn-lg" href="/Top100Songs" role="button">Submit Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/Vote" role="button">Vote on Songs</a></p>
+<p><a class="btn btn-primary btn-lg" href="/ViewSongs" role="button">View the List</a></p>
+
+<h1>Submit songs for consideration in the top 100 songs of 2010-2016</h1>
+<h2>Songs can be any genre or artist but have to have been released between January 1st 2010 to the present.</h2>
+
+{% block content %}
+    <form action="" method="post" name="submitform">
+        {{ form.hidden_tag() }}
+        <p>
+            Song Title:<br>
+            {{ form.SongName(size=80) }}<br>
+        </p>
+        <p>
+            Artist:<br>
+            {{ form.Artist(size=80) }}<br>
+        </p>
+        <p>
+            Nominated By:<br>
+            {{ form.Nominator(size=80) }}<br>
+        </p>
+        <p><input type="submit" value="Submit Song"></p>
+    </form>
+{% endblock %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
